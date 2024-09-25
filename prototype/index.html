@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>Premiwise - Underwriter Form</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width" />
 
 	<!-- Fonts and icons -->
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
 	<!-- CSS Files -->
@@ -24,6 +26,7 @@
 			flex-wrap: wrap;
 			justify-content: space-between;
 		}
+
 		.form-column {
 			flex-basis: 48%;
 			background: #f9f9f9;
@@ -32,12 +35,15 @@
 			border-radius: 5px;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		}
+
 		.form-column p {
 			font-weight: normal;
 		}
+
 		.form-column p strong {
 			font-weight: bold;
 		}
+
 		.premium-highlight {
 			font-size: 24px;
 			font-weight: bold;
@@ -48,17 +54,29 @@
 			border-radius: 10px;
 			text-align: center;
 		}
+
+		#model-selection {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			/* Align radio buttons to the left */
+		}
+
+		.form-check {
+			margin-bottom: 0;
+			/* Remove extra space between radio buttons */
+		}
 	</style>
 </head>
 
 <body>
 	<div class="image-container set-full-height" style="background-image: url('static/img/wizard-book.jpg')">
-	    
-	    <!-- Big container -->
-	    <div class="container">
-	        <div class="row">
-		        <div class="col-sm-8 col-sm-offset-2">
-		            <!-- Language Selection -->
+
+		<!-- Big container -->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<!-- Language Selection -->
 					<div class="text-right">
 						<label>Select Language:</label>
 						<select id="languageSwitcher" onchange="switchLanguage()">
@@ -66,48 +84,50 @@
 							<option value="de">Deutsch</option>
 						</select>
 					</div>
-		            <!-- Wizard container -->
-		            <div class="wizard-container">
-		                <div class="card wizard-card" data-color="purple" id="wizard">
-		                    <form action="" method="" id="form1">
-		                    	<div class="wizard-header">
-		                        	<h3 class="wizard-title" id="title">Premiwise - Underwriter Form</h3>
+					<!-- Wizard container -->
+					<div class="wizard-container">
+						<div class="card wizard-card" data-color="purple" id="wizard">
+							<form action="" method="" id="form1">
+								<div class="wizard-header">
+									<h3 class="wizard-title" id="title">Premiwise - Underwriter Form</h3>
 									<h5 id="subtitle">This information will predict the Insurance Premium.</h5>
-		                    	</div>
+								</div>
 
 								<div class="wizard-navigation">
 									<ul>
-			                            <li><a href="#details" data-toggle="tab" id="personal-tab">Personal</a></li>
-			                            <li><a href="#captain" data-toggle="tab" id="coverage-tab">Coverage</a></li>
-			                            <li><a href="#description" data-toggle="tab" id="history-tab">History</a></li>
+										<li><a href="#details" data-toggle="tab" id="personal-tab">Personal</a></li>
+										<li><a href="#captain" data-toggle="tab" id="coverage-tab">Coverage</a></li>
+										<li><a href="#description" data-toggle="tab" id="history-tab">History</a></li>
 										<li><a href="#premimum" data-toggle="tab" id="premium-tab">Premium</a></li>
-			                        </ul>
+									</ul>
 								</div>
 
 								<div class="tab-content">
-		                            <div class="tab-pane" id="details">
-		                            	<div class="row">
-			                            	<div class="col-sm-12">
-			                                	<h4 class="info-text">Tell us something about yourself.</h4>
-			                            	</div>
-		                                	<div class="col-sm-6">
+									<div class="tab-pane" id="details">
+										<div class="row">
+											<div class="col-sm-12">
+												<h4 class="info-text">Tell us something about yourself.</h4>
+											</div>
+											<div class="col-sm-6">
 												<div class="input-group">
 													<span class="input-group-addon">
 														<i class="material-icons">double_arrow</i>
 													</span>
-													
+
 													<div class="form-group label-floating">
-													<label class="control-label">Age:</label>
-														 <input class="form-control" type="number" step="any" min="1" name="Age" required>
+														<label class="control-label" id="age-label">Age</label>
+														<input class="form-control" type="number" step="any" min="1"
+															name="Age" required>
 													</div>
 												</div>
 
 												<div class="input-group">
 													<span class="input-group-addon">
 														<i class="material-icons">double_arrow</i>
-													</span>							
+													</span>
 													<div class="form-group label-floating">
-														<label class="control-label">Location</label>
+														<label class="control-label"
+															id="location-label">Location</label>
 														<select class="form-control" name="Location" required>
 															<option disabled="" selected=""></option>
 															<option value="California">California</option>
@@ -118,56 +138,74 @@
 														</select>
 													</div>
 												</div>
-		                                	</div>
-		                                	<div class="col-sm-6">
-											
+											</div>
+											<div class="col-sm-6">
+
 												<div class="form-group label-floating">
-		                                        	<label class="control-label">Gender</label>
-	                                        		<select class="form-control" name="Gender" required>
+													<label class="control-label" id="gender-label">Gender</label>
+													<select class="form-control" name="Gender" required>
 														<option disabled="" selected=""></option>
-	                                                	<option value="Male">Male</option>
-	                                                	<option value="Female">Female</option>
-	                                                	<option value="Non-binary">Non-binary</option>
-		                                        	</select>
-		                                    	</div>
-											
+														<option value="Male">Male</option>
+														<option value="Female">Female</option>
+														<option value="Non-binary">Non-binary</option>
+													</select>
+												</div>
+
 												<div class="form-group label-floating">
-		                                        	<label class="control-label">Occupation</label>
-	                                        		<select class="form-control" name="Occupation" required>
+													<label class="control-label"
+														id="occupation-label">Occupation</label>
+													<select class="form-control" name="Occupation" required>
 														<option disabled="" selected=""></option>
-	                                                	<option value="Doctor">Doctor</option>
-	                                                	<option value="Engineer">Engineer</option>
-	                                                	<option value="Lawyer">Lawyer</option>
+														<option value="Doctor">Doctor</option>
+														<option value="Engineer">Engineer</option>
+														<option value="Lawyer">Lawyer</option>
 														<option value="Manager">Manager</option>
 														<option value="Teacher">Teacher</option>
-		                                        	</select>
-		                                    	</div>
-		                                	</div>
-		                            	</div>
-		                            </div>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="wizard-footer">
+											<div class="pull-right">
+												<input type='button' class='btn btn-next btn-fill btn-danger btn-wd'
+													name='next' value='Next' />
+												<!-- <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='Predict Premium' value='Predict Premium' id="finishBtn" /> -->
+											</div>
+											<div class="pull-left">
+												<input type='button'
+													class='btn btn-previous btn-fill btn-default btn-wd' name='previous'
+													value='Previous' />
+											</div>
+											<div class="clearfix"></div>
+										</div>
+									</div>
 
 									<!-- Coverage Tab -->
 									<div class="tab-pane" id="captain">
 										<div class="row">
 											<div class="col-sm-12">
-												<h4 class="info-text" id="coverage-header">What cover are you looking for?</h4>
+												<h4 class="info-text" id="coverage-header">What cover are you looking
+													for?</h4>
 											</div>
 											<div class="col-sm-6">
 												<div class="input-group">
 													<span class="input-group-addon">
 														<i class="material-icons">double_arrow</i>
 													</span>
-													
+
 													<div class="form-group label-floating">
-														<label class="control-label" id="income-level-label">Income Level:</label>
+														<label class="control-label" id="income-level-label">Income
+															Level:</label>
 														<div class="input-group">
 															<span class="input-group-addon">$</span>
-															<input class="form-control" type="number" step="any" min="1" name="Income Level" required>
+															<input class="form-control" type="number" step="any" min="1"
+																name="Income Level" required>
 														</div>
 													</div>
 
 													<div class="form-group label-floating">
-														<label class="control-label" id="coverage-type-label">Coverage Type:</label>
+														<label class="control-label" id="coverage-type-label">Coverage
+															Type:</label>
 														<select class="form-control" name="Coverage Type" required>
 															<option disabled="" selected=""></option>
 															<option value="Auto">Auto</option>
@@ -184,130 +222,200 @@
 														<i class="material-icons">double_arrow</i>
 													</span>
 													<div class="form-group label-floating">
-														<label class="control-label" id="coverage-amount-label">Coverage Amount:</label>
+														<label class="control-label" id="coverage-amount-label">Coverage
+															Amount:</label>
 														<div class="input-group">
 															<span class="input-group-addon">$</span>
-															<input class="form-control" type="number" step="any" min="1" name="Coverage Amount" required>
+															<input class="form-control" type="number" step="any" min="1"
+																name="Coverage Amount" required>
 														</div>
 													</div>
-													
+
 													<div class="form-group label-floating">
-														<label class="control-label" id="deductible-label">Deductible:</label>
+														<label class="control-label"
+															id="deductible-label">Deductible:</label>
 														<div class="input-group">
 															<span class="input-group-addon">$</span>
-															<input class="form-control" type="number" step="any" min="1" name="Deductible" required>
+															<input class="form-control" type="number" step="any" min="1"
+																name="Deductible" required>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
+										<div class="wizard-footer">
+											<div class="pull-right">
+												<input type='button' class='btn btn-next btn-fill btn-danger btn-wd'
+													name='next' value='Next' />
+												<!-- <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='Predict Premium' value='Predict Premium' id="finishBtn" /> -->
+											</div>
+											<div class="pull-left">
+												<input type='button'
+													class='btn btn-previous btn-fill btn-default btn-wd' name='previous'
+													value='Previous' />
+											</div>
+											<div class="clearfix"></div>
+										</div>
 									</div>
 
-																		<!-- History tab -->
-																		<div class="tab-pane" id="description">
-																			<div class="row">
-																				<div class="col-sm-12">
-																					<h4 class="info-text">Policy Term and Accidental Riders can be moved to the previous screen, since they fall under Cover.</h4>
-																				</div>
-																				<div class="col-sm-6">
-																					<div class="input-group">
-																						<span class="input-group-addon">
-																							<i class="material-icons">double_arrow</i>
-																						</span>		
-																						
-																						<div class="form-group label-floating">
-																							<label class="control-label">Policy Term:</label>
-																							<input class="form-control" type="number" step="any" min="1" name="Policy Term" required>
-																						</div>		
-									
-																						<div class="form-group label-floating">
-																							<label class="control-label">Additional Riders:</label>
-																							<select class="form-control" name="Additional Riders" required>
-																								<option disabled="" selected=""></option>
-																								<option value="Accidental Death">Accidental Death</option>
-																								<option value="Critical Illness">Critical Illness</option>
-																								<option value="None">None</option>
-																							</select>
-																						</div>	
-									
-																						<div class="form-group label-floating">
-																							<label class="control-label">Driving History:</label>
-																							<select class="form-control" name = "Driving History" required>
-																								<option disabled="" selected=""></option>
-																								<option value="1 accident">1 accident</option>
-																								<option value="2 accidents">2 accidents</option>
-																								<option value="Multiple accidents">Multiple accidents</option>
-																								<option value="No accidents">No accidents</option>
-																							</select>
-																						</div>														
-																					</div>
-																				</div>
-																				
-																				<div class="col-sm-6">
-																						<div class="form-group label-floating">
-																							<label class="control-label">Medical History:</label>
-																							<select class="form-control" name="Medical History" required>
-																								<option disabled="" selected=""></option>
-																								<option value="Diabetes">Diabetes</option>
-																								<option value="Critical Illness">Heart Disease</option>
-																								<option value="Hypertension">Hypertension</option>
-																								<option value="None">None</option>
-																							</select>
-																						</div>	
-																						
-																						<div class="form-group label-floating">
-																							<label class="control-label">Lifestyle Factors:</label>
-																							<select class="form-control" name="Lifestyle Factors" required>
-																								<option disabled="" selected=""></option>
-																								<option value="Non-smoker">Non-smoker</option>
-																								<option value="Occasional Drinker">Occasional Drinker</option>
-																								<option value="Regular Drinker">Regular Drinker</option>
-																								<option value="Smoker">Smoker</option>
-																							</select>
-																						</div>		
-									
-																						<div class="form-group label-floating">
-																							<label class="control-label">Claims History:</label>
-																							<input class="form-control" type="number" step="any" min="1" name="Claims History" required>
-																						</div>														
-																				</div>
-																			</div>
-																		</div>
+									<!-- History tab -->
+									<div class="tab-pane" id="description">
+										<div class="row">
+											<div class="col-sm-12">
+												<h4 class="info-text" id="">Policy Term and Accidental Riders can be
+													moved to the previous screen, since they fall under Cover.</h4>
+											</div>
+											<div class="col-sm-6">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="material-icons">double_arrow</i>
+													</span>
+
+													<div class="form-group label-floating">
+														<label class="control-label" id="policy-term-label">Policy
+															Term:</label>
+														<input class="form-control" type="number" step="any" min="1"
+															name="Policy Term" required>
+													</div>
+
+													<div class="form-group label-floating">
+														<label class="control-label"
+															id="additional-riders-label">Additional Riders:</label>
+														<select class="form-control" name="Additional Riders" required>
+															<option disabled="" selected=""></option>
+															<option value="Accidental Death">Accidental Death</option>
+															<option value="Critical Illness">Critical Illness</option>
+															<option value="None">None</option>
+														</select>
+													</div>
+
+													<div class="form-group label-floating">
+														<label class="control-label" id="driving-history-label">Driving
+															History:</label>
+														<select class="form-control" name="Driving History" required>
+															<option disabled="" selected=""></option>
+															<option value="1 accident">1 accident</option>
+															<option value="2 accidents">2 accidents</option>
+															<option value="Multiple accidents">Multiple accidents
+															</option>
+															<option value="No accidents">No accidents</option>
+														</select>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-sm-6">
+												<div class="form-group label-floating">
+													<label class="control-label" id="medical-history-label">Medical
+														History:</label>
+													<select class="form-control" name="Medical History" required>
+														<option disabled="" selected=""></option>
+														<option value="Diabetes">Diabetes</option>
+														<option value="Critical Illness">Heart Disease</option>
+														<option value="Hypertension">Hypertension</option>
+														<option value="None">None</option>
+													</select>
+												</div>
+
+												<div class="form-group label-floating">
+													<label class="control-label" id="lifestyle-factors-label">Lifestyle
+														Factors:</label>
+													<select class="form-control" name="Lifestyle Factors" required>
+														<option disabled="" selected=""></option>
+														<option value="Non-smoker">Non-smoker</option>
+														<option value="Occasional Drinker">Occasional Drinker</option>
+														<option value="Regular Drinker">Regular Drinker</option>
+														<option value="Smoker">Smoker</option>
+													</select>
+												</div>
+
+												<div class="form-group label-floating">
+													<label class="control-label" id="claims-history-label">Claims
+														History:</label>
+													<input class="form-control" type="number" step="any" min="1"
+														name="Claims History" required>
+												</div>
+											</div>
+											
+											<!-- Left side: label for choosing model -->
+											<div class="col-sm-6">
+													<div class="form-check">
+														<label class="form-check-label" style="display: block;">
+															Choose the model for premium prediction:
+														</label>
+													</div>
+											</div>
+
+											<!-- Right side: radio buttons one below the other, without extra space -->
+											<div class="col-sm-6" id="model-selection">
+												<div class="form-check">
+													<label class="form-check-label" style="display: block;">
+														<input type="radio" class="form-check-input" name="model"
+															value="linear_regression" checked>
+														Linear Regression Model
+													</label>
+												</div>
+												<div class="form-check">
+													<label class="form-check-label" style="display: block;">
+														<input type="radio" class="form-check-input" name="model"
+															value="random_forest">
+														Random Forest Model
+													</label>
+												</div>
+											</div>
+											<!-- Finish button moved from Premium Tab to History Tab -->
+
+										</div>
+										<div class="wizard-footer">
+											<div class="pull-right">
+												<input type="submit" class="btn btn-fill btn-danger btn-wd"
+													name="Predict Premium" value="Predict Premium"
+													id="finishBtnHistory" />
+											</div>
+											<div class="pull-left">
+												<input type='button'
+													class='btn btn-previous btn-fill btn-default btn-wd' name='previous'
+													value='Previous' />
+											</div>
+											<div class="clearfix"></div>
+										</div>
+									</div>
 
 									<!-- Premium Tab -->
 									<div class="tab-pane" id="premimum">
 										<div class="row">
 											<div class="col-sm-12">
-												<h4 class="info-text" id="premium-header">We are done!</h4>
+												<h4 class="info-text">We are done!</h4>
 												<div id="formDataDisplay"></div>
 												<div class="premium-highlight">
-													Here is the premium amount: <span id="PremiumAmountDisplay">$0.00</span>
+													Here is the premium amount: <span
+														id="PremiumAmountDisplay">$0.00</span>
 												</div>
 											</div>
 										</div>
+										<div class="wizard-footer">
+
+											<div class="pull-left">
+												<input type='button'
+													class='btn btn-previous btn-fill btn-default btn-wd' name='previous'
+													value='Previous' />
+											</div>
+											<div class="clearfix"></div>
+										</div>
 									</div>
-		                        </div>
-	                        	<div class="wizard-footer">
-	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-	                                    <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' id="finishBtn" />
-	                                </div>
-	                                <div class="pull-left">
-	                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
-	                                </div>
-	                                <div class="clearfix"></div>
-	                        	</div>
-		                    </form>
-		                </div>
-		            </div> <!-- wizard container -->
-		        </div>
-	    	</div> <!-- row -->
+								</div>
+							</form>
+						</div>
+					</div> <!-- wizard container -->
+				</div>
+			</div> <!-- row -->
 		</div> <!-- big container -->
 
 		<!-- Footer -->
 		<div class="footer">
 			<div class="container text-center">
-				Made with <i class="fa fa-heart heart"></i> by <a href="https://www.msg-global.com/hi/india">.msg Global Solutions India</a>.
+				Made with <i class="fa fa-heart heart"></i> by <a href="https://www.msg-global.com/hi/india">.msg Global
+					Solutions India</a>.
 			</div>
 		</div>
 	</div>
@@ -324,36 +432,40 @@
 	<script src="static/js/jquery.validate.min.js"></script>
 
 	<script>
-		// Finish button logic
-		document.getElementById('finishBtn').addEventListener('click', function(event) {
+		// Handle the Finish button in the History tab
+		document.getElementById('finishBtnHistory').addEventListener('click', function (event) {
 			event.preventDefault(); // Prevent default form submission
 
 			const form = document.getElementById('form1');
-			var formDataJSON = getFormDataAsJSON(form);
-			console.log(formDataJSON);
+			const modelType = document.querySelector('input[name="model"]:checked').value;  // Get selected model
 
-			// Fetch predicted premium
+			var formDataJSON = getFormDataAsJSON(form);
+			formDataJSON = JSON.parse(formDataJSON);
+			formDataJSON['model'] = modelType; // Add model type to form data
+
+			// Send to backend
 			fetch('/predict', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: formDataJSON
+				body: JSON.stringify(formDataJSON)
 			})
-			.then(response => response.json())
-			.then(data => {
-				var premiumAmount = parseFloatOrDefault(data);
-				if (typeof premiumAmount === "number") {
-					premiumAmount = premiumAmount.toFixed(2);
-				}
-				document.getElementById('PremiumAmountDisplay').textContent = `$${premiumAmount}`;
-				displayFormData(form, premiumAmount);
+				.then(response => response.json())
+				.then(data => {
+					var premiumAmount = parseFloatOrDefault(data);
+					if (typeof premiumAmount === "number") {
+						premiumAmount = premiumAmount.toFixed(2);
+					}
+					document.getElementById('PremiumAmountDisplay').textContent = `$${premiumAmount}`;
+					displayFormData(form, premiumAmount);
 
-				// Navigate to the Premium tab
-				document.querySelector('a[href="#premimum"]').click();
-			})
-			.catch(error => console.log('Error:', error));
+					// Navigate to the Premium tab
+					document.querySelector('a[href="#premimum"]').click();
+				})
+				.catch(error => console.log('Error:', error));
 		});
+
 
 		// Function to display form data
 		function displayFormData(form, premiumAmount) {
@@ -382,7 +494,7 @@
 			dataContainer.appendChild(column2);
 		}
 
-		// Language Switcher Function
+		// Language Switcher Function to translate labels into German
 		function switchLanguage() {
 			const lang = document.getElementById('languageSwitcher').value;
 
@@ -394,12 +506,24 @@
 					'coverage-tab': "Coverage",
 					'history-tab': "History",
 					'premium-tab': "Premium",
+					'personal-header': "Let's start with the basic details.",
+					'age-label': "Age:",
+					'gender-label': "Gender:",
+					'occupation-label': "Occupation:",
+					'location-label': "Location:",
 					'coverage-header': "Let's continue with the coverage details.",
 					'income-level-label': "Income Level:",
 					'coverage-type-label': "Coverage Type:",
 					'coverage-amount-label': "Coverage Amount:",
 					'deductible-label': "Deductible:",
-					'premium-header': "Here is the selected data and the premium amount:",
+					'policy-term-label': "Policy Term:",
+					'additional-riders-label': "Additional Riders:",
+					'medical-history-label': "Medical History:",
+					'lifestyle-factors-label': "Lifestyle Factors:",
+					'driving-history-label': "Driving History:",
+					'claims-history-label': "Claims History:",
+					'premium-header': "We are done:",
+					'premium-amount-label': "Premium Amount:",
 				},
 				de: {
 					title: "Premiwise - Versicherungsformular",
@@ -408,20 +532,36 @@
 					'coverage-tab': "Deckung",
 					'history-tab': "Geschichte",
 					'premium-tab': "Prämie",
+					'personal-header': "Lass uns mit den grundlegenden Details beginnen.",
+					'age-label': "Alter:",
+					'gender-label': "Geschlecht:",
+					'occupation-label': "Beruf:",
+					'location-label': "Ort:",
 					'coverage-header': "Fahren wir mit den Deckungsdetails fort.",
 					'income-level-label': "Einkommensniveau:",
 					'coverage-type-label': "Deckungsart:",
 					'coverage-amount-label': "Deckungsbetrag:",
 					'deductible-label': "Selbstbehalt:",
+					'policy-term-label': "Laufzeit der Police:",
+					'additional-riders-label': "Zusätzliche Reiter:",
+					'medical-history-label': "Medizinische Vorgeschichte:",
+					'lifestyle-factors-label': "Lebensstilfaktoren:",
+					'driving-history-label': "Fahrverlauf:",
+					'claims-history-label': "Schadensgeschichte:",
 					'premium-header': "Hier sind die ausgewählten Daten und der Prämienbetrag:",
+					'premium-amount-label': "Prämienbetrag:",
 				}
 			};
 
 			// Apply translations based on language selection
 			for (const key in translations[lang]) {
-				document.getElementById(key).textContent = translations[lang][key];
+				const element = document.getElementById(key);
+				if (element) {
+					element.textContent = translations[lang][key];
+				}
 			}
 		}
+
 
 		// Helper function for JSON conversion
 		function getFormDataAsJSON(form) {
@@ -447,4 +587,5 @@
 		}
 	</script>
 </body>
+
 </html>
